@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cake Delight | Fresh Cakes for Every Celebration</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top cake-navbar">
+    <div class="container">
+
+        <a class="navbar-brand brand-logo" href="#">
+            <span class="brand-icon">
+                <i class="bi bi-cake2-fill"></i>
+            </span>
+            Cake Delight
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#cakes">Cakes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link border-0 bg-transparent" id="myReviewsButton">
+                        <i class="bi bi-star-fill me-1"></i>
+                        Reviews
+                    </button>
+                </li>
+                </ul>
+
+            <div class="navbar-actions d-flex align-items-center gap-2">
+            
+                <button class="icon-button" id="themeToggle" title="Toggle dark mode">
+            
+                    <i class="bi bi-moon-stars-fill"></i>
+            
+                </button>
+            
+            
+                <button class="basket-button" id="myOrdersButton">
+            
+                    <i class="bi bi-receipt"></i>
+                    <span>My Orders</span>
+            
+                </button>
+            
+            
+                <button class="basket-button" data-bs-toggle="offcanvas" data-bs-target="#basketCanvas">
+            
+                    <i class="bi bi-bag-heart-fill"></i>
+                    <span>Basket</span>
+            
+                    <span 
+                        class="basket-count" 
+                        id="basketCount">
+                        0
+                    </span>
+            
+                </button>
+            
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+<header class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <div class="hero-badge">
+                    <i class="bi bi-stars"></i>
+                    Baked with love
+                </div>
+
+                <h1 class="hero-title">
+                    Sweet moments
+                    <span>deserve a delightful cake.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Discover freshly crafted cakes made for birthdays,
+                    celebrations and every little moment worth remembering.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#cakes" class="btn primary-button">
+                        Explore Cakes
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                    <div class="hero-feature">
+                        <div class="feature-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <div>
+                            <strong>Fresh &amp; Fast</strong>
+                            <small>Made for your celebration</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="hero-cake-wrapper">
+
+                    <div class="hero-glow"></div>
+
+                    <div class="hero-cake-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+                            alt="Delicious chocolate cake">
+                    </div>
+
+                    <div class="floating-card rating-floating">
+                        <div class="floating-icon">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div>
+                            <strong>4.9/5</strong>
+                            <small>Loved by customers</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card order-floating">
+                        <div class="floating-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <div>
+                            <strong>Made fresh</strong>
+                            <small>Every single day</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="stats-section">
+
+        <div class="container">
+
+            <div class="stats-card">
+
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="bi bi-cake2"></i>
+                    </div>
+                    <div>
+                        <strong id="totalCakes">--</strong>
+                        <span>Cakes available</span>
+                    </div>
+                </div>
+
+                <div class="stat-divider"></div>
+
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="bi bi-bag-check"></i>
+                    </div>
+                    <div>
+                        <strong id="totalOrders">0</strong>
+                        <span>Your orders</span>
+                    </div>
+                </div>
+
+                <div class="stat-divider"></div>
+
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="bi bi-star"></i>
+                    </div>
+                    <div>
+                        <strong>4.8</strong>
+                        <span>Average rating</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="cakes-section" id="cakes">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">OUR COLLECTION</span>
+                    <h2>Find your perfect cake</h2>
+                    <p>Something delicious for every occasion.</p>
+                </div>
+
+                <div class="search-wrapper">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="form-control"
+                        placeholder="Search cakes...">
+
+                </div>
+
+            </div>
+
+
+            <div class="filter-panel">
+
+                <div class="filter-group">
+
+                    <label for="categoryFilter">
+                        <i class="bi bi-grid"></i>
+                        Category
+                    </label>
+
+                    <select id="categoryFilter" class="form-select">
+                        <option value="">All categories</option>
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label>
+                        <i class="bi bi-currency-rupee"></i>
+                        Price range
+                    </label>
+
+                    <div class="price-inputs">
+
+                        <input
+                            type="number"
+                            id="minPrice"
+                            class="form-control"
+                            placeholder="Min">
+
+                        <span>—</span>
+
+                        <input
+                            type="number"
+                            id="maxPrice"
+                            class="form-control"
+                            placeholder="Max">
+
+                    </div>
+
+                </div>
+
+
+                <button class="filter-button" id="clearFilters">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div id="loadingSpinner" class="loading-container d-none">
+
+                <div class="spinner-border" role="status"></div>
+
+                <p>Finding delicious cakes...</p>
+
+            </div>
+
+
+            <div id="emptyState" class="empty-state d-none">
+
+                <div class="empty-icon">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <h4>No cakes found</h4>
+
+                <p>Try changing your search or filters.</p>
+
+            </div>
+
+
+            <div class="row g-4" id="cakeContainer">
+            </div>
+
+        </div>
+
+    </section>
+    
+
+    <section class="categories-section" id="categories">
+
+        <div class="container">
+
+            <div class="section-heading centered">
+
+                <span class="section-label">CELEBRATE YOUR WAY</span>
+
+                <h2>Something for every occasion</h2>
+
+                <p>Choose a cake that makes the moment special.</p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <button class="category-card" data-category="Birthday">
+
+                        <div class="category-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?auto=format&fit=crop&w=700&q=80"
+                                alt="Birthday cake">
+                        </div>
+
+                        <div class="category-content">
+                            <h4>Birthday Cakes</h4>
+                            <span>Make their day sweeter</span>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <button class="category-card" data-category="Wedding">
+
+                        <div class="category-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=700&q=80"
+                                alt="Wedding cake">
+                        </div>
+
+                        <div class="category-content">
+                            <h4>Wedding Cakes</h4>
+                            <span>Celebrate your forever</span>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <button class="category-card" data-category="Chocolate">
+
+                        <div class="category-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+                                alt="Chocolate cake">
+                        </div>
+
+                        <div class="category-content">
+                            <h4>Chocolate Cakes</h4>
+                            <span>For the chocolate lover</span>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="about-section" id="about">
+
+        <div class="container">
+
+            <div class="about-card">
+
+                <div class="about-content">
+
+                    <span class="section-label">WHY CAKE DELIGHT</span>
+
+                    <h2>Made for moments<br>worth celebrating.</h2>
+
+                    <p>
+                        From the first slice to the last crumb, Cake Delight
+                        brings freshly prepared cakes straight to your
+                        celebration.
+                    </p>
+
+                    <div class="about-features">
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Freshly prepared
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Quality ingredients
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Easy online ordering
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Customer-rated cakes
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="about-decoration">
+                    <div class="decoration-circle">
+                        <i class="bi bi-cake2-fill"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div>
+
+                <a class="navbar-brand brand-logo" href="#">
+                    <span class="brand-icon">
+                        <i class="bi bi-cake2-fill"></i>
+                    </span>
+                    Cake Delight
+                </a>
+
+                <p>
+                    Making every celebration a little sweeter.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#cakes">Cakes</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <span>© 2026 Cake Delight</span>
+
+            <span>
+                Built with <i class="bi bi-heart-fill"></i>
+                for every sweet moment
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<div class="offcanvas offcanvas-end basket-canvas" tabindex="-1" id="basketCanvas">
+
+    <div class="offcanvas-header">
+
+        <div>
+            <span class="section-label">YOUR ORDER</span>
+            <h4 class="offcanvas-title">Shopping Basket</h4>
+        </div>
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas">
+        </button>
+
+    </div>
+
+    <div class="offcanvas-body">
+
+        <div id="basketItems"></div>
+
+        <div id="emptyBasket" class="empty-basket">
+
+            <div class="empty-icon">
+                <i class="bi bi-bag"></i>
+            </div>
+
+            <h5>Your basket is empty</h5>
+
+            <p>Add a delicious cake to get started.</p>
+
+        </div>
+
+        <div class="basket-summary d-none" id="basketSummary">
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <strong id="basketSubtotal">₹0</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery</span>
+                <strong>Free</strong>
+            </div>
+
+            <hr>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <strong id="basketTotal">₹0</strong>
+            </div>
+
+            <button
+                class="checkout-button"
+                id="checkoutButton">
+
+                Proceed to Checkout
+                <i class="bi bi-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="checkoutModal" tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content checkout-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="section-label">ALMOST THERE</span>
+                    <h4 class="modal-title">Complete your order</h4>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <form id="checkoutForm">
+
+                    <div class="form-field">
+
+                        <label for="customerName">Your name</label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="customerName"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label for="customerEmail">Email address</label>
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="customerEmail"
+                            placeholder="you@example.com"
+                            required>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label for="phoneNumber">Phone number</label>
+
+                        <input
+                            type="tel"
+                            class="form-control"
+                            id="phoneNumber"
+                            placeholder="Enter your phone number"
+                            required>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="checkout-button w-100"
+                        id="placeOrderButton">
+
+                        Place Order
+                        <i class="bi bi-check2-circle"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    class="modal fade"
+    id="ordersModal"
+    tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content checkout-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="section-label">
+                        YOUR ORDERS
+                    </span>
+
+                    <h4 class="modal-title">
+                        Order History
+                    </h4>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <div
+                    id="ordersLoading"
+                    class="loading-container d-none">
+
+                    <div
+                        class="spinner-border"
+                        role="status">
+                    </div>
+
+                    <p>
+                        Loading your orders...
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="ordersEmpty"
+                    class="empty-state d-none">
+
+                    <div class="empty-icon">
+                        <i class="bi bi-receipt"></i>
+                    </div>
+
+                    <h5>No orders yet</h5>
+
+                    <p>
+                        Your delicious orders will appear here.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="ordersContainer">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    class="modal fade"
+    id="reviewsModal"
+    tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content checkout-modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        YOUR REVIEWS
+                    </span>
+
+                    <h4 class="modal-title">
+                        Review Your Cakes
+                    </h4>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div
+                    id="reviewsPageLoading"
+                    class="loading-container d-none">
+
+                    <div
+                        class="spinner-border"
+                        role="status">
+                    </div>
+
+                    <p>
+                        Loading your purchased cakes...
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="reviewsPageEmpty"
+                    class="empty-state d-none">
+
+                    <div class="empty-icon">
+                        <i class="bi bi-star"></i>
+                    </div>
+
+                    <h5>
+                        No purchased cakes yet
+                    </h5>
+
+                    <p>
+                        Place an order first to review your cakes.
+                    </p>
+
+                </div>
+
+
+                <div id="reviewsPageContainer">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    class="modal fade"
+    id="ratingModal"
+    tabindex="-1">
+
+    <div
+        class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content checkout-modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        CUSTOMER REVIEWS
+                    </span>
+
+                    <h4
+                        class="modal-title"
+                        id="ratingCakeName">
+                        Cake Reviews
+                    </h4>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <!-- Existing reviews -->
+
+                <div class="reviews-section">
+
+                    <div class="reviews-heading">
+
+                        <h5>
+                            What customers say
+                        </h5>
+
+                    </div>
+
+
+                    <div
+                        id="reviewsLoading"
+                        class="loading-container d-none">
+
+                        <div
+                            class="spinner-border"
+                            role="status">
+                        </div>
+
+                        <p>
+                            Loading reviews...
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="reviewsContainer">
+                    </div>
+
+                </div>
+
+
+                <hr class="rating-divider">
+
+
+                <!-- Submit review -->
+
+                <div class="rating-form-section">
+
+                    <h5>
+                        Leave your review
+                    </h5>
+
+                    <p class="rating-help-text">
+                        Share your experience with this cake.
+                    </p>
+
+
+                    <form id="ratingForm">
+
+                        <input
+                            type="hidden"
+                            id="ratingCakeId">
+
+
+                        <input
+                            type="hidden"
+                            id="selectedRating">
+
+
+                        <div class="form-field">
+
+                            <label
+                                for="customerRatingEmail">
+                                Email address
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="customerRatingEmail"
+                                placeholder="you@example.com"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Your rating
+                            </label>
+
+
+                            <div
+                                class="rating-star-selector"
+                                id="ratingStarSelector">
+
+                                <i
+                                    class="bi bi-star"
+                                    data-rating="1">
+                                </i>
+
+                                <i
+                                    class="bi bi-star"
+                                    data-rating="2">
+                                </i>
+
+                                <i
+                                    class="bi bi-star"
+                                    data-rating="3">
+                                </i>
+
+                                <i
+                                    class="bi bi-star"
+                                    data-rating="4">
+                                </i>
+
+                                <i
+                                    class="bi bi-star"
+                                    data-rating="5">
+                                </i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label
+                                for="ratingReview">
+                                Your review
+                            </label>
+
+                            <textarea
+                                class="form-control rating-textarea"
+                                id="ratingReview"
+                                rows="4"
+                                maxlength="500"
+                                placeholder="Tell us what you loved about this cake...">
+                            </textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="checkout-button w-100"
+                            id="submitRatingButton">
+
+                            Submit Review
+
+                            <i
+                                class="bi bi-send">
+                            </i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-4">
+
+    <div
+        id="notificationToast"
+        class="toast cake-toast"
+        role="alert">
+
+        <div class="toast-body">
+
+            <div class="toast-icon">
+                <i class="bi bi-check-lg"></i>
+            </div>
+
+            <div>
+                <strong id="toastTitle">Order Successful!</strong>
+                <p id="toastMessage">
+                    Your order has been placed successfully.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                class="btn-close ms-auto"
+                data-bs-dismiss="toast">
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/basket.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/orders.js"></script>
+<script src="js/rating.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

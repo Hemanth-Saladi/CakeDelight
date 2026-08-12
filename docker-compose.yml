@@ -1,0 +1,104 @@
+services:
+
+  mongodb:
+    image: mongo:7
+    container_name: cakedelight-mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - cakedelight-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: cakedelight-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - cakedelight-network
+
+  catalog:
+    build:
+      context: ./cake-catalog-service
+    image: cakedelight-catalog
+    container_name: cakedelight-catalog
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_MONGODB_URI: mongodb://cakedelight-mongodb:27017/cake_catalog_db
+    depends_on:
+      - mongodb
+    networks:
+      - cakedelight-network
+
+  order:
+    build:
+      context: ./order-service
+    image: cakedelight-order
+    container_name: cakedelight-order
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_MONGODB_URI: mongodb://cakedelight-mongodb:27017/order_db
+      SPRING_RABBITMQ_HOST: cakedelight-rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+    depends_on:
+      - mongodb
+      - rabbitmq
+    networks:
+      - cakedelight-network
+
+  rating:
+    build:
+      context: ./rating-service
+    image: cakedelight-rating
+    container_name: cakedelight-rating
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_MONGODB_URI: mongodb://cakedelight-mongodb:27017/rating_db
+    depends_on:
+      - mongodb
+    networks:
+      - cakedelight-network
+
+  notification:
+    build:
+      context: ./notification-service
+    image: cakedelight-notification
+    container_name: cakedelight-notification
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_RABBITMQ_HOST: cakedelight-rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+    depends_on:
+      - rabbitmq
+    networks:
+      - cakedelight-network
+
+  frontend:
+    build:
+      context: ./frontend
+    image: cakedelight-frontend
+    container_name: cakedelight-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - catalog
+      - order
+      - rating
+      - notification
+    networks:
+      - cakedelight-network
+
+
+networks:
+  cakedelight-network:
+    driver: bridge

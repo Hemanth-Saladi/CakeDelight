@@ -1,0 +1,85 @@
+PS D:\Projects\CakeDelight> java -version
+>> docker --version
+>> docker compose version
+>> kubectl version --client
+>> minikube version
+openjdk version "17.0.20" 2026-07-21
+OpenJDK Runtime Environment Temurin-17.0.20+8 (build 17.0.20+8)
+OpenJDK 64-Bit Server VM Temurin-17.0.20+8 (build 17.0.20+8, mixed mode, sharing)
+Docker version 29.6.2, build dfc4efb
+Docker Compose version v5.3.1
+Client Version: v1.36.1
+Kustomize Version: v5.8.1
+minikube version: v1.38.1
+commit: c93a4cb9311efc66b90d33ea03f75f2c4120e9b0
+
+
+PS D:\Projects\CakeDelight> minikube start --driver=docker
+😄  minikube v1.38.1 on Microsoft Windows 11 Pro 25H2
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.50 ...
+💾  Downloading Kubernetes v1.35.1 preload ...
+🏃  Updating the running docker "minikube" container ... 
+🐳  Preparing Kubernetes v1.35.1 on Docker 29.2.1 ... 
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+
+PS D:\Projects\CakeDelight> minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+PS D:\Projects\CakeDelight> kubectl config current-context
+minikube
+
+
+PS D:\Projects\CakeDelight> kubectl get nodes
+NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   11h   v1.35.1
+
+
+PS D:\Projects\CakeDelight> kubectl get pods
+NAME                            READY   STATUS    RESTARTS        AGE
+catalog-f4464dd69-srqzl         1/1     Running   1 (6m2s ago)    26m
+frontend-6fcf858d78-z2p7h       1/1     Running   1 (6m12s ago)   25m
+mongodb-5d87995bdc-ml75s        1/1     Running   1 (6m8s ago)    25m
+notification-7bf6c545c8-ddvtx   1/1     Running   1               25m
+order-5c74f95677-hp5dr          1/1     Running   1 (6m1s ago)    25m
+rabbitmq-86775cfdcd-wv842       1/1     Running   1 (6m3s ago)    25m
+rating-5748776cdb-km5xj         1/1     Running   1 (6m1s ago)    25m
+
+
+PS D:\Projects\CakeDelight> kubectl get services
+NAME           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)              AGE
+catalog        ClusterIP   10.98.242.237    <none>        8081/TCP             10h
+frontend       NodePort    10.107.13.217    <none>        80:30599/TCP         10h
+kubernetes     ClusterIP   10.96.0.1        <none>        443/TCP              11h
+mongodb        ClusterIP   10.97.207.106    <none>        27017/TCP            10h
+notification   ClusterIP   10.96.2.73       <none>        8084/TCP             10h
+order          ClusterIP   10.100.22.223    <none>        8082/TCP             10h
+rabbitmq       ClusterIP   10.106.138.38    <none>        5672/TCP,15672/TCP   10h
+rating         ClusterIP   10.107.172.195   <none>        8083/TCP             10h
+
+
+PS D:\Projects\CakeDelight> kubectl get deployments
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+catalog        1/1     1            1           10h
+frontend       1/1     1            1           10h
+mongodb        1/1     1            1           10h
+notification   1/1     1            1           10h
+order          1/1     1            1           10h
+rabbitmq       1/1     1            1           10h
+rating         1/1     1            1           10h
+
+
+PS D:\Projects\CakeDelight> minikube service frontend --url
+http://127.0.0.1:50391
+❗  Because you are using a Docker driver on windows, the terminal needs to be open to run it.
